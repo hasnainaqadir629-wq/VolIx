@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VOLTIX | Next-Gen Electric Scooties</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ANIMATED NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="logo">VOLT<span>IX</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="store.html">Scooty Store</a></li>
+      <li><a href="tech.html">Technology</a></li>
+      <li><a href="test-ride.html">Test Ride</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="cart-btn" onclick="toggleCart()">
+        🛒 Cart <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content reveal">
+        <span class="hero-badge">⚡ 2026 HYPER-URBAN SERIES</span>
+        <h1>Ride The Future With <span>Zero Limits.</span></h1>
+        <p>Experience aerospace-grade aluminum frames, 165 km single-charge range, and instant torque engineered for modern city streets.</p>
+        <div class="hero-btns">
+          <a href="store.html" class="btn-primary">Explore Scooties →</a>
+          <a href="test-ride.html" class="btn-outline">Book Free Test Ride</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>165 km</h3>
+            <p>True Eco Range</p>
+          </div>
+          <div class="stat-item">
+            <h3>95 km/h</h3>
+            <p>Top Speed</p>
+          </div>
+          <div class="stat-item">
+            <h3>2.8 sec</h3>
+            <p>0–40 km/h Sprint</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper reveal">
+        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=85" alt="Voltix Apex Electric Scooty" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED MODELS -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Flagship Electric Fleet</h2>
+        <p>Precision-balanced urban machines crafted for effortless daily commutes.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card reveal">
+          <div class="card-img-box">
+            <span class="card-badge">BESTSELLER</span>
+            <img src="https://images.unsplash.com/photo-1619771914272-e3c1ba17ba4d?auto=format&fit=crop&w=900&q=80" alt="Voltix Apex Pro" />
+          </div>
+          <div class="card-body">
+            <h3>Voltix Apex Pro</h3>
+            <p>4.2 kWh Dual Lithium pack, ABS disc brakes, and smart TFT navigation display.</p>
+            <div class="card-footer">
+              <span class="price">$1,499</span>
+              <button class="btn-primary" onclick="addToCart('Voltix Apex Pro', 1499)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-img-box">
+            <span class="card-badge">CITY EDITION</span>
+            <img src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&w=900&q=80" alt="Voltix Lite S1" />
+          </div>
+          <div class="card-body">
+            <h3>Voltix Lite S1</h3>
+            <p>Ultra-lightweight commuter scooty with removable battery and keyless NFC unlock.</p>
+            <div class="card-footer">
+              <span class="price">$999</span>
+              <button class="btn-primary" onclick="addToCart('Voltix Lite S1', 999)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-img-box">
+            <span class="card-badge">PERFORMANCE</span>
+            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=900&q=80" alt="Voltix GT Turbo" />
+          </div>
+          <div class="card-body">
+            <h3>Voltix GT Turbo</h3>
+            <p>8.5 kW peak hub motor, hydraulic suspension, and regenerative braking system.</p>
+            <div class="card-footer">
+              <span class="price">$1,899</span>
+              <button class="btn-primary" onclick="addToCart('Voltix GT Turbo', 1899)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE RANGE CALCULATOR -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="glass-panel reveal">
+        <div class="section-title" style="margin-bottom: 30px;">
+          <h2>Real-World Range Estimator</h2>
+          <p>Slide your riding mode and rider weight to calculate live battery range.</p>
+        </div>
+        <div class="form-grid" style="align-items: center;">
+          <div>
+            <div class="form-group">
+              <label>Ride Mode: <strong id="modeLabel" style="color: var(--accent);">City Eco (45 km/h)</strong></label>
+              <select id="rideMode" onchange="calculateRange()">
+                <option value="165">Eco Mode (45 km/h)</option>
+                <option value="135">Normal Mode (65 km/h)</option>
+                <option value="105">Hyper Sport (95 km/h)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Rider Weight: <strong id="weightVal" style="color: var(--accent);">70 kg</strong></label>
+              <input type="range" id="riderWeight" min="45" max="120" value="70" oninput="calculateRange()" />
+            </div>
+          </div>
+          <div style="text-align: center; padding: 24px; background: #080b12; border-radius: 18px; border: 1px solid rgba(0,240,255,0.2);">
+            <p style="color: var(--text-muted);">Estimated Single-Charge Range</p>
+            <h2 id="rangeResult" style="font-size: 3.5rem; color: var(--accent); margin: 10px 0;">160 km</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">*Includes 12% Regenerative Braking Recovery</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE-OUT CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h3>Your Garage Cart</h3>
+      <button onclick="toggleCart()" style="background:none; border:none; color:#fff; font-size:1.4rem; cursor:pointer;">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:16px; font-size:1.2rem; font-weight:700;">
+        <span>Total:</span>
+        <span id="cartTotal" style="color:var(--accent);">$0</span>
+      </div>
+      <button class="btn-primary" style="width:100%;" onclick="checkoutAlert()">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 VOLTIX Electric Mobility. Engineered for the Future.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

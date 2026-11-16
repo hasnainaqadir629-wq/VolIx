@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Test Ride | VOLTIX</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ANIMATED NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="logo">VOLT<span>IX</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="store.html">Scooty Store</a></li>
+      <li><a href="tech.html">Technology</a></li>
+      <li><a href="test-ride.html" class="active">Test Ride</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="cart-btn" onclick="toggleCart()">
+        🛒 Cart <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Experience The Torque</h1>
+      <p>Schedule a free doorstep or showroom test ride in under 60 seconds.</p>
+    </div>
+  </header>
+
+  <section class="section-padding" style="padding-top: 10px;">
+    <div class="container" style="max-width: 760px;">
+      <form class="glass-panel reveal" id="testRideForm" onsubmit="submitBooking(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="riderName" placeholder="e.g. Ali Raza" required />
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="riderPhone" placeholder="+92 300 1234567" required />
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Select Scooty Model</label>
+            <select id="scootyModel">
+              <option>Voltix Apex Pro</option>
+              <option>Voltix Lite S1</option>
+              <option>Voltix GT Turbo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" id="rideDate" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>City / Experience Hub</label>
+          <select id="rideCity">
+            <option>Karachi — Clifton Flagship Hub</option>
+            <option>Lahore — Gulberg Experience Center</option>
+            <option>Islamabad — F-7 Markaz Studio</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">Confirm Free Test Ride</button>
+        <p id="bookingMsg" style="margin-top: 16px; text-align: center; color: var(--accent); font-weight: 600;"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- SLIDE-OUT CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h3>Your Garage Cart</h3>
+      <button onclick="toggleCart()" style="background:none; border:none; color:#fff; font-size:1.4rem; cursor:pointer;">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:16px; font-size:1.2rem; font-weight:700;">
+        <span>Total:</span>
+        <span id="cartTotal" style="color:var(--accent);">$0</span>
+      </div>
+      <button class="btn-primary" style="width:100%;" onclick="checkoutAlert()">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 VOLTIX Electric Mobility. Engineered for the Future.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

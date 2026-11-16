@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technology | VOLTIX Engineering</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ANIMATED NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="logo">VOLT<span>IX</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="store.html">Scooty Store</a></li>
+      <li><a href="tech.html" class="active">Technology</a></li>
+      <li><a href="test-ride.html">Test Ride</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="cart-btn" onclick="toggleCart()">
+        🛒 Cart <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Aerospace Engineering</h1>
+      <p>Click the pulsing hotspots on the scooty below to inspect our battery, motor, and smart dashboard architecture.</p>
+    </div>
+  </header>
+
+  <section class="section-padding" style="padding-top: 10px;">
+    <div class="container">
+      <!-- INTERACTIVE HOTSPOT DIAGRAM -->
+      <div class="tech-showcase reveal">
+        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1400&q=85" alt="Voltix Technology Anatomy" />
+        <button class="hotspot" style="top: 28%; left: 34%;" onclick="showTechSpec(0)">1</button>
+        <button class="hotspot" style="top: 58%; left: 52%;" onclick="showTechSpec(1)">2</button>
+        <button class="hotspot" style="top: 70%; left: 74%;" onclick="showTechSpec(2)">3</button>
+      </div>
+
+      <div class="tech-info-box reveal" id="techInfoBox">
+        <span class="hero-badge" id="techTag">COMPONENT 01</span>
+        <h3 id="techTitle" style="font-size: 1.7rem; margin-bottom: 10px;">7-Inch Gorilla Glass Smart Cockpit</h3>
+        <p id="techDesc" style="color: var(--text-muted);">Features turn-by-turn offline navigation, anti-theft GPS geofencing, Bluetooth music control, and automatic day/night brightness sensors.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE-OUT CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h3>Your Garage Cart</h3>
+      <button onclick="toggleCart()" style="background:none; border:none; color:#fff; font-size:1.4rem; cursor:pointer;">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:16px; font-size:1.2rem; font-weight:700;">
+        <span>Total:</span>
+        <span id="cartTotal" style="color:var(--accent);">$0</span>
+      </div>
+      <button class="btn-primary" style="width:100%;" onclick="checkoutAlert()">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 VOLTIX Electric Mobility. Engineered for the Future.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

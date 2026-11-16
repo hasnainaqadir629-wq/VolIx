@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Store | VOLTIX Electric Scooties & Gear</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ANIMATED NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="logo">VOLT<span>IX</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="store.html" class="active">Scooty Store</a></li>
+      <li><a href="tech.html">Technology</a></li>
+      <li><a href="test-ride.html">Test Ride</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="cart-btn" onclick="toggleCart()">
+        🛒 Cart <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>VOLTIX Official Store</h1>
+      <p>Configure your electric scooty or grab smart helmets, fast chargers, and riding accessories.</p>
+    </div>
+  </header>
+
+  <section class="section-padding" style="padding-top: 20px;">
+    <div class="container">
+      <!-- CATEGORY FILTERS -->
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterStore('all', this)">All Products</button>
+        <button class="filter-btn" onclick="filterStore('scooty', this)">Electric Scooties</button>
+        <button class="filter-btn" onclick="filterStore('gear', this)">Smart Helmets & Gear</button>
+        <button class="filter-btn" onclick="filterStore('charger', this)">Chargers & Batteries</button>
+      </div>
+
+      <!-- PRODUCTS GRID -->
+      <div class="grid-3" id="storeGrid">
+        <div class="card store-item" data-category="scooty">
+          <div class="card-img-box">
+            <span class="card-badge">SCOOTY</span>
+            <img src="https://images.unsplash.com/photo-1619771914272-e3c1ba17ba4d?auto=format&fit=crop&w=900&q=80" alt="Voltix Apex Pro" />
+          </div>
+          <div class="card-body">
+            <h3>Voltix Apex Pro</h3>
+            <p>165 km Range • 95 km/h Top Speed • Dual Channel ABS</p>
+            <div class="card-footer">
+              <span class="price">$1,499</span>
+              <button class="btn-primary" onclick="addToCart('Voltix Apex Pro', 1499)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card store-item" data-category="scooty">
+          <div class="card-img-box">
+            <span class="card-badge">SCOOTY</span>
+            <img src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&w=900&q=80" alt="Voltix Lite S1" />
+          </div>
+          <div class="card-body">
+            <h3>Voltix Lite S1</h3>
+            <p>110 km Range • Swappable Battery • Lightweight Alloy Frame</p>
+            <div class="card-footer">
+              <span class="price">$999</span>
+              <button class="btn-primary" onclick="addToCart('Voltix Lite S1', 999)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card store-item" data-category="scooty">
+          <div class="card-img-box">
+            <span class="card-badge">SCOOTY</span>
+            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=900&q=80" alt="Voltix GT Turbo" />
+          </div>
+          <div class="card-body">
+            <h3>Voltix GT Turbo</h3>
+            <p>180 km Range • 110 km/h Top Speed • Traction Control</p>
+            <div class="card-footer">
+              <span class="price">$1,899</span>
+              <button class="btn-primary" onclick="addToCart('Voltix GT Turbo', 1899)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card store-item" data-category="gear">
+          <div class="card-img-box">
+            <span class="card-badge">SMART GEAR</span>
+            <img src="https://images.unsplash.com/photo-1558980394-4c7c9299fe96?auto=format&fit=crop&w=900&q=80" alt="AeroHUD Smart Helmet" />
+          </div>
+          <div class="card-body">
+            <h3>AeroHUD Smart Helmet</h3>
+            <p>Built-in Bluetooth intercom, rear LED brake strip & anti-fog visor.</p>
+            <div class="card-footer">
+              <span class="price">$189</span>
+              <button class="btn-primary" onclick="addToCart('AeroHUD Smart Helmet', 189)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card store-item" data-category="charger">
+          <div class="card-img-box">
+            <span class="card-badge">POWER</span>
+            <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=900&q=80" alt="HyperCharge 1500W Dock" />
+          </div>
+          <div class="card-body">
+            <h3>HyperCharge 1500W Dock</h3>
+            <p>Charges your Voltix battery from 0% to 80% in just 55 minutes.</p>
+            <div class="card-footer">
+              <span class="price">$249</span>
+              <button class="btn-primary" onclick="addToCart('HyperCharge 1500W Dock', 249)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card store-item" data-category="gear">
+          <div class="card-img-box">
+            <span class="card-badge">ACCESSORY</span>
+            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=900&q=80" alt="Carbon Armored Gloves" />
+          </div>
+          <div class="card-body">
+            <h3>Carbon Armored Gloves</h3>
+            <p>Touchscreen-compatible knuckles with all-weather grip padding.</p>
+            <div class="card-footer">
+              <span class="price">$59</span>
+              <button class="btn-primary" onclick="addToCart('Carbon Armored Gloves', 59)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE-OUT CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h3>Your Garage Cart</h3>
+      <button onclick="toggleCart()" style="background:none; border:none; color:#fff; font-size:1.4rem; cursor:pointer;">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:16px; font-size:1.2rem; font-weight:700;">
+        <span>Total:</span>
+        <span id="cartTotal" style="color:var(--accent);">$0</span>
+      </div>
+      <button class="btn-primary" style="width:100%;" onclick="checkoutAlert()">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 VOLTIX Electric Mobility. Engineered for the Future.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
